@@ -25,6 +25,7 @@ build/
 compile
 config.*
 configure
+configure~
 depcomp
 install-sh
 libtool
@@ -42,3 +43,7 @@ missing
 *.o
 src/main/jniLibs/
 stamp-h1
+
+# IDEs
+.vscode
+.metals
