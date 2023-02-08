@@ -14,12 +14,19 @@ LT_INIT([shared])
 AC_PROG_CC_C99
 
 AX_PROG_JAVAC
-AX_JNI_INCLUDE_DIR
+case "$host_os" in
+darwin*)
+    CFLAGS="$CFLAGS -I$JAVA_HOME/include -I$JAVA_HOME/include/darwin -arch arm64 -arch x86_64"
+;;
+*)
+    AX_JNI_INCLUDE_DIR
+    for JNI_INCLUDE_DIR in $JNI_INCLUDE_DIRS
+    do
+        CFLAGS="$CFLAGS -I$JNI_INCLUDE_DIR"
+    done
+;;
+esac
 
-for JNI_INCLUDE_DIR in $JNI_INCLUDE_DIRS
-do
-    CFLAGS="$CFLAGS -I$JNI_INCLUDE_DIR"
-done
 
 # Check for OS X, which has shared library extensions of ".dylib",
 # and requires the Java library to have an extension of ".jnilib"
