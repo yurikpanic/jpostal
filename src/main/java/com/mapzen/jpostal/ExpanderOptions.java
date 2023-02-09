@@ -177,7 +177,7 @@ public class ExpanderOptions {
 
     public static class Builder {
         static {
-            System.loadLibrary("jpostal_expander"); // Load native library at runtime
+            NativeUtils.loadOrFail("jpostal_expander"); // Load native library at runtime
         }
 
         private String[] languages;
