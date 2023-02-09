@@ -10,3 +10,40 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# for jenv
+.java-version
+
+# Build artefacts
+.gradle/
+Makefile
+Makefile.am
+Makefile.in
+aclocal.m4
+autom4te.cache/
+build/
+compile
+config.*
+configure
+configure~
+depcomp
+install-sh
+libtool
+ltmain.sh
+m4/libtool.m4
+m4/ltoptions.m4
+m4/ltsugar.m4
+m4/ltversion.m4
+m4/lt~obsolete.m4
+missing
+.deps
+.libs
+*.la
+*.lo
+*.o
+src/main/jniLibs/
+stamp-h1
+
+# IDEs
+.vscode
+.metals

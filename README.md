@@ -1,7 +1,17 @@
+| :exclamation: Modified for specific use case                    |
+|:----------------------------------------------------------------|
+| Forked and modified to load native libraries from the jar file. |
+| No plans to push this to upstream.                              |
+
+* For Mac OS builds JAVA_HOME is expected to be set before running `./gradlew assemble` because `AX_JNI_INCLUDE_DIR` autoconf macro seem to support just system jdk, not those that were installed with brew.
+* For Mac OS builds a universal binary creation for `arm64` and `x86_64` is hardcoded.
+* Native libraries are expected to be added as resources under `/native/` prefix to jar file (os classpath).
+* No distinction based on `os.arch` property is done (yet?)
+    * for Mac OS a universal binary is expected.
+    * for other systems we'll try to load whatever is places under `/native/`.
+
 jpostal
 -------
-
-[![Build Status](https://travis-ci.org/openvenues/jpostal.svg?branch=master)](https://travis-ci.org/openvenues/jpostal)
 
 These are the Java/JNI bindings to [libpostal](https://github.com/openvenues/libpostal), a fast, multilingual NLP library (written in C) for parsing/normalizing physical addresses around the world.
 
